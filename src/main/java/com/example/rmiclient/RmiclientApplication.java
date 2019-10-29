@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.remoting.rmi.RmiProxyFactoryBean;
 
+import java.util.Date;
+
 @SpringBootApplication
 public class RmiclientApplication {
 
@@ -19,7 +21,10 @@ public class RmiclientApplication {
 	public static void main(String[] args) {
 		Calculate calculate = SpringApplication.run(RmiclientApplication.class, args).getBean(Calculate.class);
 		System.out.println("<--------- Client Response ----------->");
-		System.out.println(calculate.sum(5));
+		int number = 6;
+		System.out.println("Number from Client: " + number);
+		System.out.println("Response Time: " + new Date());
+		System.out.println(calculate.sum(number));
 	}
 
 }
